@@ -22,5 +22,3 @@ def create_app(redis_connection_string: str) -> web.Application:
     app.add_routes([web.get('/ws', virtool_ws.ws.root)])
 
     return app
-
-

@@ -1,4 +1,3 @@
-import logging
 from aioredis import Redis
 
 
@@ -15,7 +14,3 @@ async def dispatcher_messages(channel_name: str, redis: Redis):
 
     while True:
         yield await channel.get_json()
-
-
-
-

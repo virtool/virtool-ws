@@ -20,9 +20,3 @@ def entry():
 def start_web_server(redis_connection_string):
     app = create_app(redis_connection_string)
     web.run_app(app)
-
-
-
-
-
-

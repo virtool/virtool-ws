@@ -1,9 +1,8 @@
 import logging
 
 from aiohttp.web_app import Application
-from virtool_ws.redis import connect
 from aiojobs.aiohttp import get_scheduler_from_app
-
+from virtool_core.redis import connect
 from virtool_ws.websocket.dispatcher import Dispatcher
 
 logger = logging.getLogger("startup")
@@ -34,8 +33,8 @@ async def startup_redis(app: Application):
 
     """
     redis_connection_string = app["redis_connection_string"]
+    timeout = 1
 
-    redis = await connect(redis_connection_string, app["scheduler"])
+    redis = await connect(redis_connection_string, timeout)
 
     app["redis"] = redis
-

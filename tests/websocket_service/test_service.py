@@ -26,5 +26,3 @@ async def test_redis_does_receive_messages_from_dispatch_channel(redis):
     _messages = await task
 
     assert _messages == [{"message": i} for i in range(10)]
-
-
